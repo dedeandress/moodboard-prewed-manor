@@ -13,7 +13,11 @@
   <div class="wrap">
     <nav class="nav">
       <div class="brand">Manor C · Classic</div>
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span>Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-links" id="primary-navigation">
         <a href="#studio">Studio</a>
         <a href="#looks">Looks</a>
         <a href="#look-01">Ivory</a>
@@ -490,5 +494,6 @@
       <div>Ivory formal · Sage formal · Kitchen aprons</div>
     </footer>
   </div>
+  <script src="navigation.js"></script>
 </body>
 </html>

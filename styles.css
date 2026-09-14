@@ -77,6 +77,10 @@ a {
   color: var(--muted);
 }
 
+.nav-toggle {
+  display: none;
+}
+
 .nav-links a:hover {
   color: var(--gold);
 }
@@ -439,7 +443,6 @@ h2 {
     width: min(1180px, calc(100% - 24px));
   }
 
-  .nav,
   .footer,
   .section-head,
   .hero,
@@ -456,7 +459,6 @@ h2 {
     display: block;
   }
 
-  .nav-links,
   .zones,
   .looks,
   .shots,
@@ -464,6 +466,99 @@ h2 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .nav {
+    min-height: 58px;
+    padding: 12px 0;
+    position: sticky;
+  }
+
+  .brand {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: auto;
+    padding: 8px 0 8px 12px;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    font: inherit;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .nav-toggle-icon,
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after {
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .nav-toggle-icon {
+    position: relative;
+  }
+
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .nav-toggle-icon::before {
+    top: -5px;
+  }
+
+  .nav-toggle-icon::after {
+    top: 5px;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+    background: transparent;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    right: -12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 10px 12px 14px;
+    background: color-mix(in srgb, var(--ivory) 96%, white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 30px rgba(42, 36, 29, 0.12);
+  }
+
+  .nav-links.is-open {
+    display: grid;
+  }
+
+  .nav-links a {
+    padding: 11px 6px;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
   }
 
   .hero,
